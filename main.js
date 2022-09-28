@@ -50,31 +50,37 @@ function mainMenu() {
 // ******************************************************
 function firstTo40() {
   // Set the grade of the first student to 40.
+  grades[0] = 40;
   outputEl.innerHTML = "First grade to 40";
 }
 
 function lastTo50() {
   // Set the grade of the last student to 50.
+  grades[grades.length - 1] = 50;
   outputEl.innerHTML = "Last grade to 50";
 }
 
 function randomTo100() {
   // Set the grade of a random student to 100.
+  grades[randomInt(0, grades.length - 1)] = 100;
   outputEl.innerHTML = "Random grade to 100";
 }
 
 function addRandomGrade() {
   // Add a random grade between 0 and 100 to the end of the array.
+  grades.push(randomInt(0, 100));
   outputEl.innerHTML = "Add random grade";
 }
 
 function removeLastGrade() {
   // Remove the last grade.
+  grades.pop();
   outputEl.innerHTML = "Remove the last grade";
 }
 
 function countBelow50() {
   // Count how many grades are below 50.  Output the result.
+  
   outputEl.innerHTML = "Count grades below 50";
 }
 
@@ -103,4 +109,9 @@ function drawArray() {
     outputStr += `<div style="height:${divHeight}px"></div>`;
   }
   containerEl.innerHTML = outputStr;
+}
+
+// Random Integer min included max included
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
